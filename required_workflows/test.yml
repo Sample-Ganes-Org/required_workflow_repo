@@ -6,7 +6,7 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - name: echo GOPATH
+    - name: ${{ vars.REPO_GO_PATH }}
       env:
         GOPATH: ${{ vars.REPO_GO_PATH }}
       run: |
