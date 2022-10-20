@@ -8,4 +8,4 @@ jobs:
     steps:
     - name: echo HELLO WORLD
       run: |
-        echo "HELLO WORLD"
+        echo ${{ vars.SAMPLE_REPO_VAR }}
