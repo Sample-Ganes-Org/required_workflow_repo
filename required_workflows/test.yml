@@ -5,7 +5,7 @@ jobs:
     name: Go fmt
     runs-on: ubuntu-latest
     container:
-      image: ${{ vars.REPO_GO_VERSION }}
+      image: ${{ vars.REPO_GOLANG_VERSION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
