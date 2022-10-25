@@ -17,7 +17,7 @@ jobs:
           path: ./go/src/${{vars.REPO_WORKING_DIRECTORY}}
       
       - name: Checkout to branch
-        run : echo $GITHUB_HEAD_REF
+        run : git checkout -c $GITHUB_HEAD_REF
           
       - name: Get goimports
         run: go install golang.org/x/tools/cmd/goimports@latest
