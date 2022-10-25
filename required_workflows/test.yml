@@ -17,7 +17,8 @@ jobs:
           path: ./go/src/${{vars.REPO_WORKING_DIRECTORY}}
           
       - name: Format
-        run: if [ "$(gofmt -s -l . | wc -l)" -gt 0 ]; then exit 1; fi
+        run: |
+          $(gofmt -s -l . | wc -l)
         working-directory: ./go/src/${{vars.REPO_WORKING_DIRECTORY}}
 
 #       - name: Run Lint
