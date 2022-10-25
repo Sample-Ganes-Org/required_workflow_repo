@@ -16,8 +16,8 @@ jobs:
         with:
           path: ./go/src/${{vars.REPO_WORKING_DIRECTORY}}
       
-      - name: Checkout to branch
-        run : git checkout -c $GITHUB_HEAD_REF
+      - name: Switch to branch
+        run : git switch -c $GITHUB_HEAD_REF
         working-directory: ./go/src/${{vars.REPO_WORKING_DIRECTORY}}
           
       - name: Get goimports
