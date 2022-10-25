@@ -4,8 +4,7 @@ jobs:
   gofmt:
     name: Go fmt
     runs-on: ubuntu-latest
-    container:
-      image: 
+
     steps:
       - name: Install go ${{ vars.REPO_GOLANG_VERSION }}
         uses: actions/setup-go@v2
