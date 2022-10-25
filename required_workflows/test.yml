@@ -29,7 +29,12 @@ jobs:
           echo Run go fmt...
           for f in $files; do
             gofmt -w -s "${f}"
-            goimports -l -local ${{ vars.REPO_GO_MOD_NAME }} -w "${f}"
+            bin=$(go env GOBIN)
+            if [ -z "${bin}" ]; then
+              bin="${HOME}/go/bin"
+            fi
+            
+            "${bin}/goimports" -l -local ${{ vars.REPO_GO_MOD_NAME }} -w "${f}"
           done
           
         working-directory: ./go/src/${{vars.REPO_WORKING_DIRECTORY}}
