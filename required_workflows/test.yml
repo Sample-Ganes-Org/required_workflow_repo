@@ -5,7 +5,7 @@ jobs:
     name: Go fmt
     runs-on: ubuntu-latest
     container:
-      image: golang:1.16.2
+      image: ${{ vars.REPO_GO_VERSION }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -17,4 +17,4 @@ jobs:
           GOPATH: ./go
         run: |
           echo ${{vars.REPO_GO_PATH}}
-        working-directory: $ {{ vars.REPO_GO_PATH }}
+        working-directory: ${{ vars.REPO_GO_PATH }}
