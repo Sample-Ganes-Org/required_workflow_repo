@@ -15,6 +15,9 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: ./go/src/${{vars.REPO_WORKING_DIRECTORY}}
+      
+      - name: Checkout to branch
+        run : echo $GITHUB_HEAD_REF
           
       - name: Get goimports
         run: go install golang.org/x/tools/cmd/goimports@latest
@@ -35,8 +38,6 @@ jobs:
             
             "${bin}/goimports" -l -local ${{ vars.REPO_GO_MOD_NAME }} -w "${f}"
           done
-          
-          git status
           
         working-directory: ./go/src/${{vars.REPO_WORKING_DIRECTORY}}
        
