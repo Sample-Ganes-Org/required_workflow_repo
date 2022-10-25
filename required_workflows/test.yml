@@ -44,7 +44,7 @@ jobs:
         run: |
           git config --global user.email "${{ vars.REPO_GIT_USER_EMAIL }}" &&
           git config --global user.name "${{ vars.REPO_GIT_USER_NAME }}" &&
-          (git diff-index --quiet HEAD -- &&
+          git diff-index --quiet HEAD -- &&
           git commit -m 'Add changes produced by gofmt' &&
-          git push) || true
+          git push
         working-directory: ./go/src/${{vars.REPO_WORKING_DIRECTORY}}
