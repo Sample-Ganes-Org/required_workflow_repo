@@ -5,8 +5,13 @@ jobs:
     name: Go fmt
     runs-on: ubuntu-latest
     container:
-      image: ${{ vars.REPO_GOLANG_VERSION }}
+      image: 
     steps:
+      - name: Install go ${{ vars.REPO_GOLANG_VERSION }}
+        uses: actions/setup-go@v2
+        with:
+          go-version: '${{ vars.REPO_GOLANG_VERSION }}'
+          
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -14,7 +19,7 @@ jobs:
 
       - name: Run Lint
         env:
-          GOPATH: ./go
+          GOPATH: /home/runner/work/go-sample-service/go-sample-service/go
         run: |
           pwd
           ls
