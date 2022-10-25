@@ -18,7 +18,6 @@ jobs:
         run: |
           pwd
           ls
-          files=$(go list ${{vars.REPO_WORKING_DIRECTORY}}/... 2>/dev/null | grep -v ${{vars.REPO_WORKING_DIRECTORY}}/tmp | grep -v hydro | sed -Ee "s|${{vars.REPO_WORKING_DIRECTORY}}/?|./|" | xargs -I {} find {} -type f -name '*.go' ! -name '*.pb.go' ! -name '*.twirp.go' ! -name 'mock_*.go')
-          files=$(go list ${{vars.REPO_WORKING_DIRECTORY}}/... 2>/dev/null)
+          files=$(go list ./... 2>/dev/null)
           echo $files
-        working-directory: ./go/src/
+        working-directory: ./go/src/${{vars.REPO_WORKING_DIRECTORY}}
