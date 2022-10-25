@@ -1,13 +1,20 @@
-name: Test
+name: Go fmt
 on: [pull_request]
-
 jobs:
-  test:
-
+  gofmt:
+    name: Go fmt
     runs-on: ubuntu-latest
+    container:
+      image: ${{ vars.REPO_GOLANG_VERSION }}
     steps:
-    - name: ${{ vars.REPO_GO_PATH }}
-      env:
-        GOPATH: ${{ vars.REPO_GO_PATH }}
-      run: |
-        echo $GOPATH
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: ${{ vars.REPO_GO_PATH }}
+
+      - name: Run Lint
+        env:
+          GOPATH: ./go
+        run: |
+          echo ${{vars.REPO_GO_PATH}}
+        working-directory: $ {{ vars.REPO_GO_PATH }}
