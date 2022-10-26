@@ -2,4 +2,4 @@ name: Go fmt
 on: [pull_request]
 jobs:
   call_go_fmt:
-    uses: Sample-Ganes-Org/required_workflow_repo/required_workflows/go-fmt.yml@main
+    uses: Sample-Ganes-Org/required_workflow_repo/.github/workflows/go-fmt.yml@main
