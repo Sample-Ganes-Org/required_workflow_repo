@@ -22,7 +22,7 @@ jobs:
 #           git fetch origin $GITHUB_HEAD_REF
 #           git checkout $GITHUB_HEAD_REF
           
-        working-directory: ./go/src/${{vars.REPO_WORKING_DIRECTORY}}
+#         working-directory: ./go/src/${{vars.REPO_WORKING_DIRECTORY}}
           
       - name: Get goimports
         run: go install golang.org/x/tools/cmd/goimports@latest
