@@ -1,14 +1,14 @@
 name: Go fmt
 on: [pull_request]
 jobs:
-  if: ${{ vars.FORMAT_GO == 'true' }}
   call_go_fmt:
+    if: ${{ vars.FORMAT_GO == 'true' }}
     uses: Sample-Ganes-Org/required_workflow_repo/.github/workflows/go-fmt.yml@main
   
-  if: ${{ vars.PRETTIFY_JS == 'true' }}
   call_prettier_js:
+    if: ${{ vars.PRETTIFY_JS == 'true' }}
     uses: Sample-Ganes-Org/required_workflow_repo/.github/workflows/prettier-js.yml@main
   
-  if: ${{ vars.PRETTIFY_MD == 'true' }}
   call_prettier_md:
+    if: ${{ vars.PRETTIFY_MD == 'true' }}
     uses: Sample-Ganes-Org/required_workflow_repo/.github/workflows/prettier-md.yml@main
