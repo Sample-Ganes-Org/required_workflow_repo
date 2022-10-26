@@ -12,3 +12,9 @@ jobs:
   call_prettier_md:
     if: ${{ vars.PRETTIFY_MD == 'true' }}
     uses: Sample-Ganes-Org/required_workflow_repo/.github/workflows/prettier-md.yml@main
+  
+  job_to_fail:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail
+        run: exit 1
